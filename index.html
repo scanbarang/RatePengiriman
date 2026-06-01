@@ -19,6 +19,7 @@ input,select{
   margin-bottom:10px;
   border-radius:8px;
   border:none;
+  box-sizing:border-box;
 }
 
 button{
@@ -68,7 +69,7 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbx0y4uB9HiQFRRclbeoVH73
 function kirim(){
 
   if(!driver.value || !sj.value){
-    alert("Driver dan SJ wajib diisi");
+    document.getElementById("status").innerText = "Driver & SJ wajib diisi";
     return;
   }
 
@@ -91,9 +92,13 @@ function kirim(){
     driver.value="";
     kernet.value="";
     sj.value="";
+    tipe.value="DK";
+
   })
   .catch(()=>{
+
     document.getElementById("status").innerText = "ERROR ❌";
+
   });
 
 }
